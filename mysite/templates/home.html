@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Welcome to Jonathan's page!</h2>
+<p>
+    <form action='/' method='post'>
+        {% csrf_token %}
+        {{ form }}
+        <input type='submit' value='Submit'/>
+    </form>
+</p>
+
+{% for genre in genres %}
+    <p>
+        <a href='/genre/{{ genre.id }}'>
+            {{ genre }}
+        </a>
+    </p>
+{% endfor %}
+
+{% endblock %}

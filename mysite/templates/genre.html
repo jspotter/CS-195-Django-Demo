@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Genre Page</h2>
+<p>This is the page for: {{ genre }}</p>
+
+<p>
+    <form action='/genre/{{ genre.id }}' method='post'>
+        {% csrf_token %}
+        {{ form }}
+        <input type='submit' value='Submit'/>
+    </form>
+</p>
+
+<ul>
+{% for artist in artists %}
+    <li>{{ artist }}</li>
+{% endfor %}
+</ul>
+
+{% endblock %}
